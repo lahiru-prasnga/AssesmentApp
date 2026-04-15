@@ -1,0 +1,11 @@
+{
+    "name": "AssessmentUpload",
+    "alias": "assessmentupload",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\AssessmentUpload\\Providers\\AssessmentUploadServiceProvider"
+    ],
+    "files": []
+}
