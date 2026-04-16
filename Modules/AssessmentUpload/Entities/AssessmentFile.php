@@ -9,6 +9,10 @@ class AssessmentFile extends Model
 {
     use HasFactory;
 
+    public const STATUS_UPLOADED = 'uploaded';
+    public const STATUS_PENDING_REMOVAL = 'pending_removal';
+    public const STATUS_REMOVED = 'removed';
+
     protected $fillable = [
         'assessment_id',
         'original_name',

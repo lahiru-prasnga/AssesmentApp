@@ -4,6 +4,8 @@ namespace Modules\AssessmentUpload\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\AssessmentUpload\Repositories\Contracts\AssessmentRepositoryInterface;
+use Modules\AssessmentUpload\Repositories\AssessmentRepository;
 
 class AssessmentUploadServiceProvider extends ServiceProvider
 {
@@ -38,6 +40,10 @@ class AssessmentUploadServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->bind(
+            AssessmentRepositoryInterface::class,
+            AssessmentRepository::class
+        );
     }
 
     /**

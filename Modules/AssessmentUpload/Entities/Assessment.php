@@ -10,6 +10,11 @@ class Assessment extends Model
 {
     use HasFactory, SoftDeletes;
 
+    public const STATUS_DRAFT = 'draft';
+    public const STATUS_PENDING = 'pending';
+    public const STATUS_SUBMITTED = 'submitted';
+    public const STATUS_REVIEWED = 'reviewed';
+    
     protected $fillable = [
         'title',
         'description',
