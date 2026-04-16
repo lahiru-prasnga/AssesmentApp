@@ -1,6 +1,8 @@
 <?php
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Modules\AssessmentUpload\Http\Controllers\AssessmentController;
+use Modules\AssessmentUpload\Http\Controllers\AssessmentFileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/assessmentupload', function (Request $request) {
-    return $request->user();
+Route::prefix('assessments')->group(function () {
+    Route::get('/', [AssessmentController::class, 'index']);
+    Route::post('/', [AssessmentController::class, 'store']);
+    Route::get('/{id}', [AssessmentController::class, 'show']);
+    Route::post('/{id}/files', [AssessmentFileController::class, 'upload']);
+    Route::delete('/{id}/files/{fileId}', [AssessmentFileController::class, 'destroy']);
+    Route::post('/{id}/submit', [AssessmentController::class, 'submit']);
 });
